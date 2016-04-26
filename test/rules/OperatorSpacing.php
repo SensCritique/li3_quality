@@ -8,7 +8,7 @@
 
 namespace li3_quality\test\rules;
 
-use lithium\util\String;
+use lithium\util\StringUtil;
 
 class OperatorSpacing extends \li3_quality\test\Rule {
 
@@ -200,7 +200,7 @@ class OperatorSpacing extends \li3_quality\test\Rule {
 				$token = $tokens[$id];
 				$isPHP = $testable->isPHP($token['line']);
 				if ($isPHP && !$token['isString']) {
-					$pattern = String::insert($inspector['regex'], array(
+					$pattern = StringUtil::insert($inspector['regex'], array(
 						'content' => preg_quote($token['content'], "/"),
 					));
 					$firstId = $id - $inspector['relativeTokens']['before'];
@@ -213,7 +213,7 @@ class OperatorSpacing extends \li3_quality\test\Rule {
 					}
 					if (preg_match($pattern, $html) === 0) {
 						$this->addViolation(array(
-							'message' => String::insert($inspector['message'], $token),
+							'message' => StringUtil::insert($inspector['message'], $token),
 							'line' => $token['line'],
 						));
 					}

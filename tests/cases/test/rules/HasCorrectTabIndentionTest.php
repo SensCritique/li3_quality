@@ -365,7 +365,7 @@ switch (true) {
 		return \$formatter(\$message);
 	case (is_string(\$formatter)):
 		\$data = \$this->_message_data(\$message);
-		return String::insert(\$formatter, \$data);
+		return StringUtil::insert(\$formatter, \$data);
 	default:
 		throw new RuntimeException(
 			"Formatter for format `{\$format}` is neither string nor closure."

@@ -8,7 +8,7 @@
 
 namespace li3_quality\test\rules;
 
-use lithium\util\String;
+use lithium\util\StringUtil;
 
 class ControlStructuresHaveCorrectSpacing extends \li3_quality\test\Rule {
 
@@ -192,7 +192,7 @@ class ControlStructuresHaveCorrectSpacing extends \li3_quality\test\Rule {
 	 */
 	protected function _matchPattern($patterns, $body) {
 		foreach ($patterns as $pattern) {
-			if (preg_match(String::insert($pattern, $this->_regexMap), $body) === 1) {
+			if (preg_match(StringUtil::insert($pattern, $this->_regexMap), $body) === 1) {
 				return true;
 			}
 		}

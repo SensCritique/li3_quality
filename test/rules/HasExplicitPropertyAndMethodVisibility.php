@@ -8,7 +8,7 @@
 
 namespace li3_quality\test\rules;
 
-use lithium\util\String;
+use lithium\util\StringUtil;
 use li3_quality\analysis\Parser;
 
 class HasExplicitPropertyAndMethodVisibility extends \li3_quality\test\Rule {
@@ -61,7 +61,7 @@ class HasExplicitPropertyAndMethodVisibility extends \li3_quality\test\Rule {
 					$token = $tokens[$member];
 					$this->addViolation(array(
 						'modifiers' => $modifiers,
-						'message' => String::insert($message, $token),
+						'message' => StringUtil::insert($message, $token),
 						'line' => $token['line'],
 					));
 				}
